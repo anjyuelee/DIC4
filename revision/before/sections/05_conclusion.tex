@@ -1,0 +1,20 @@
+% =====================================================================
+\section{Conclusion}\label{sec:conclusion}
+% =====================================================================
+This paper presented GarbageGo, a domain AI agent that changes the
+question residents ask from ``when will the truck arrive'' to ``which
+point can I still make it to now.'' The scheme compares truck ETA, network
+walking time, and a buffer that grows with data age and remaining stops.
+It ranks candidate points by slack and risk, falls back to clearly labeled
+schedules when live data is stale, and keeps every number out of the
+LLM's hands. A 29-day study of Taichung's open data shows that the inputs
+are usable: plates link 96.1\% of collection points to vehicles, and local
+geocoding located 95.6\% of point addresses. It also shows the main
+limitation: snapshots arrive only about every five minutes, and some
+vehicles go silent.
+
+The current work is a design and data feasibility study; no
+recommendation accuracy is claimed yet. Future work will validate how
+actual arrival times can be inferred from snapshots, calibrate the buffer
+coefficients, compare the ETA baselines, and measure whether slack-based
+recommendation raises the catch rate over the nearest-point strategy.

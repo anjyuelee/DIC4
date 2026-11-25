@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": {
+      "name": "ICEIB2027 GarbageGo",
+      "projectId": "<Overleaf 專案 ID：網址 /project/ 後面那一段>",
+      "gitToken": "<Overleaf Git authentication token>"
+    }
+  }
+}

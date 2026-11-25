@@ -1,0 +1,43 @@
+--- before/sections/05_conclusion.tex
++++ after/sections/05_conclusion.tex
+@@ -3,18 +3,26 @@
+ % =====================================================================
+ This paper presented GarbageGo, a domain AI agent that changes the
+ question residents ask from ``when will the truck arrive'' to ``which
+-point can I still make it to now.'' The scheme compares truck ETA, network
+-walking time, and a buffer that grows with data age and remaining stops.
+-It ranks candidate points by slack and risk, falls back to clearly labeled
+-schedules when live data is stale, and keeps every number out of the
+-LLM's hands. A 29-day study of Taichung's open data shows that the inputs
+-are usable: plates link 96.1\% of collection points to vehicles, and local
+-geocoding located 95.6\% of point addresses. It also shows the main
+-limitation: snapshots arrive only about every five minutes, and some
+-vehicles go silent.
++point can I still make it to now.'' The scheme combines three elements:
++a slack measure that compares truck ETA with network walking time and a
++buffer that grows with data age and remaining stops; a fallback to
++clearly labeled schedules when live data is stale; and a division of
++labor in which the LLM explains results but never produces a number.
++A 29-day study of Taichung's open data shows that the required inputs
++are available: license plates link 96.1\% of collection points to
++vehicles, and local geocoding located 95.6\% of point addresses.
+ 
+-The current work is a design and data feasibility study; no
+-recommendation accuracy is claimed yet. Future work will validate how
+-actual arrival times can be inferred from snapshots, calibrate the buffer
+-coefficients, compare the ETA baselines, and measure whether slack-based
+-recommendation raises the catch rate over the nearest-point strategy.
++The same study also defines the limits of this work. First, the vehicle
++feed delivers snapshots only about every five minutes, and 18\% of
++vehicles in one snapshot had been silent for over 30 minutes, so ETA
++inputs can be stale. Second, no ground-truth arrival times exist yet, so
++no recommendation accuracy is claimed. Third, the buffer coefficients in
++(\ref{eq:buffer}) are not yet calibrated, and 4.4\% of point addresses
++still lack verified coordinates.
++
++Future work follows directly from these limits. We will validate how
++actual arrival times can be inferred from five-minute snapshots,
++calibrate the buffer on the ongoing data collection, and compare the ETA
++baselines by MAE and RMSE. Finally, we will measure whether slack-based
++recommendation raises the catch rate and lowers the misjudgment rate
++compared with the nearest-point strategy.

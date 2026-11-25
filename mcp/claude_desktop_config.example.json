@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "overleaf": {
+      "command": "/Users/<你的帳號>/.nvm/versions/node/<版本>/bin/npx",
+      "args": ["-y", "@mjyoo2/overleaf-mcp"],
+      "env": {
+        "PATH": "/Users/<你的帳號>/.nvm/versions/node/<版本>/bin:/usr/local/bin:/usr/bin:/bin"
+      }
+    }
+  }
+}

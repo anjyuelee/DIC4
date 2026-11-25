@@ -1,0 +1,17 @@
+# 真正的憑證不進版控（只提交 mcp/*.example.json）
+projects.json
+claude_desktop_config.json
+.env
+
+# LaTeX 編譯產物
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+paper/main.pdf
+
+.DS_Store
