@@ -1,5 +1,5 @@
---- before/sections/05_conclusion.tex
-+++ after/sections/05_conclusion.tex
+--- before/05_conclusion.tex
++++ after/05_conclusion.tex
 @@ -3,18 +3,26 @@
  % =====================================================================
  This paper presented GarbageGo, a domain AI agent that changes the
