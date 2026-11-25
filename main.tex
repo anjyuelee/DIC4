@@ -1,0 +1,107 @@
+% =====================================================================
+%  ICEIB 2027 — IEEE Conference Paper (IEEEtran, conference mode)
+%  GarbageGo: time-feasibility recommendation of garbage collection points
+%  Full paper length: 4–8 pages
+%
+%  Build: latexmk -pdf main.tex
+%     or: pdflatex main -> bibtex main -> pdflatex main -> pdflatex main
+% =====================================================================
+\documentclass[conference]{IEEEtran}
+% \IEEEoverridecommandlockouts  % uncomment if you need \thanks in the author block
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{url}
+
+\graphicspath{{figures/}}
+
+% Placeholder box shown when a figure file does not exist yet.
+% Usage: \figureorplaceholder{architecture.pdf}{\columnwidth}
+\newcommand{\figureorplaceholder}[2]{%
+  \IfFileExists{figures/#1}{%
+    \includegraphics[width=#2]{#1}%
+  }{%
+    \fbox{\parbox[c][3.2cm][c]{0.9#2}{\centering\small
+      Missing figure: \texttt{figures/#1}}}%
+  }%
+}
+
+% Module labels (1)–(9) used in the architecture figure and the text
+\newcommand{\modnum}[1]{(#1)}
+
+% Counter for algorithm boxes (refer with Algorithm~\ref{alg:...})
+\newcounter{algcount}
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Title
+% ---------------------------------------------------------------------
+\title{GarbageGo: A Domain AI Agent for Time-Feasibility
+Recommendation of Garbage Collection Points Using Low-Frequency Open Data}
+
+% ---------------------------------------------------------------------
+% Authors
+% TODO: fill in romanized names and affiliations.
+% Team order follows the proposal: 葉文賢, 李安爵, 邱勇嘉, 李易軒;
+% instructor: 陳煥 (add as an author or in the Acknowledgment).
+% ---------------------------------------------------------------------
+\author{
+\IEEEauthorblockN{[Author 1]}
+\IEEEauthorblockA{\textit{[Department]} \\
+\textit{[University]}\\
+Taichung, Taiwan \\
+email@address.com}
+\and
+\IEEEauthorblockN{An-Jyue Lee}
+\IEEEauthorblockA{\textit{[Department]} \\
+\textit{[University]}\\
+Taichung, Taiwan \\
+email@address.com}
+\and
+\IEEEauthorblockN{[Author 3]}
+\IEEEauthorblockA{\textit{[Department]} \\
+\textit{[University]}\\
+Taichung, Taiwan \\
+email@address.com}
+\and
+\IEEEauthorblockN{[Author 4]}
+\IEEEauthorblockA{\textit{[Department]} \\
+\textit{[University]}\\
+Taichung, Taiwan \\
+email@address.com}
+}
+
+\maketitle
+
+% ---------------------------------------------------------------------
+% Body
+% ---------------------------------------------------------------------
+\input{sections/00_abstract}
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_proposed_scheme}
+\input{sections/04_experiments}
+\input{sections/05_conclusion}
+
+% ---------------------------------------------------------------------
+\section*{Acknowledgment}
+% ---------------------------------------------------------------------
+The authors thank [Instructor name] for guidance on this project.
+Vehicle and collection-point data are provided by the Environmental
+Protection Bureau, Taichung City Government, under the Open Government
+Data License, version 1.0.
+
+% ---------------------------------------------------------------------
+% References
+% ---------------------------------------------------------------------
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,30 @@
+% =====================================================================
+% Table: Capability comparison with existing resident-facing services
+% Included from sections/02_related_work.tex via \input{tables/comparison}
+% "--" = not mentioned in the public document or paper (not proof of absence)
+% =====================================================================
+\begin{table}[htbp]
+\caption{Capability Comparison With Existing Services}
+\label{tab:comparison}
+\centering
+\setlength{\tabcolsep}{3pt}
+\footnotesize
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Capability} & \textbf{Taichung~\cite{tcepb2021ethics}} &
+\textbf{Hsinchu~\cite{chen2019travel}} & \textbf{Lima~\cite{duran2026lima}} &
+\textbf{Ours} \\
+\midrule
+Real-time truck position   & \checkmark & \checkmark & \checkmark & \checkmark \\
+Nearby point search        & \checkmark & \checkmark & --         & \checkmark \\
+Arrival-time prediction    & $\circ$    & \checkmark & --         & \checkmark \\
+Walking time               & --         & --         & --         & \checkmark \\
+Can-I-make-it judgment     & --         & --         & --         & \checkmark \\
+Alternative suggestion     & --         & --         & --         & \checkmark \\
+Data-freshness warning     & --         & --         & --         & \checkmark \\
+\bottomrule
+\multicolumn{5}{@{}p{0.95\columnwidth}@{}}{\scriptsize
+\checkmark: provided (Ours: planned); $\circ$: mentioned, method not
+disclosed; --: not mentioned in the public document.}
+\end{tabular}
+\end{table}
