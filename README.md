@@ -1,7 +1,7 @@
 # Overleaf × MCP：用 AI Agent 直接編修 IEEE 會議論文
 
 - **課程名稱**：AIoT 與數據分析（AIoT & Data Analytics, AIoT-DA）
-- **回家作業**：DIC4 — 透過 MCP 讓 AI Agent 讀寫 Overleaf 論文
+- **課堂作業**：DIC4 — 透過 MCP 讓 AI Agent 讀寫 Overleaf 論文
 - **儲存庫網址**：https://github.com/anjyuelee/DIC4
 - **論文**：GarbageGo: A Domain AI Agent for Time-Feasibility Recommendation of Garbage Collection Points Using Low-Frequency Open Data（ICEIB 2027 投稿稿，IEEEtran conference 格式）
 
