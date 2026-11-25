@@ -1,0 +1,63 @@
+% =====================================================================
+\section{Related Work}\label{sec:related}
+% =====================================================================
+
+\subsection{Arrival-Time Prediction for Collection Trucks and Buses}
+Chen \emph{et al.}~\cite{chen2019travel} predicted waste-truck travel
+times in Hsinchu City, Taiwan, by clustering historical inter-stop trips
+and fitting a linear regression per cluster. The clustered model
+outperformed unclustered regression and a neural network, and the authors
+favored it partly for its low computation cost. Their app lets a user
+pick a nearby point and view its predicted arrival time, but the paper
+does not consider whether the user can walk there in time. For buses, Zhang
+\emph{et al.}~\cite{zhang2024bus} tuned an LSTM with an improved whale
+optimization algorithm on one day of data from one route, which limits
+generalization. Rawat \emph{et al.}~\cite{rawat2026bus} trained a
+route-embedded LSTM on 20 New York City bus routes and reported a mean
+absolute error (MAE) of about 2.02 minutes, a 28.5\% improvement over a
+historical-average baseline. Buses, however, differ from garbage trucks
+in dwell behavior and stop purpose. Taichung's own system assumes that a
+delay observed at one point propagates unchanged to all later points and
+updates its estimates every minute~\cite{tcepb2022report}. Its contract
+requires an error within $\pm5$ minutes, but no measured error is
+published.
+
+\subsection{Walking Time and Pedestrian Routing}
+Fink \emph{et al.}~\cite{fink2024travel} built a travel-time matrix for
+Helsinki with separate walking speeds for average and slower walkers,
+showing that one speed can overstate how far slower people can go. Al
+Shammas \emph{et al.}~\cite{alshammas2023gis} built a GIS pedestrian
+network of sidewalks and crossings for comfort-aware routing in Madrid.
+Neither study combines walking time with a vehicle ETA.
+
+\subsection{LLM Agents and Tool Calling}
+Toolformer~\cite{schick2023toolformer} showed that language models can
+learn to call external APIs, and ReAct~\cite{yao2023react} interleaves
+reasoning with tool actions. LLMAP~\cite{yuan2025llmap} uses an LLM only
+to parse user needs into structured constraints and leaves route search
+to a graph algorithm, which outperformed LLM-as-agent planning. The
+authors also found that LLMs estimate numerical preference weights
+poorly. These findings motivate our rule that the LLM never produces ETA,
+distance, or walking-time values itself.
+
+\subsection{Waste Collection Systems and Open Data Quality}
+Most smart-collection studies serve operators: GIS route optimization in
+Dubai~\cite{hassan2025dubai}, a meta-analysis of IoT routing that found a
+21.51\% average distance reduction (only 12.37\% with real operating
+data)~\cite{maciel2025iot}, and waste-volume patterns in
+Bangkok~\cite{hamontree2026bangkok}. On the resident side, a Lima system
+sent proximity alerts when the truck approached, and residents who knew
+the collection time rose from 30\% to 95\%~\cite{duran2026lima}, but it
+did not predict arrival or consider walking time. A survey of 215 data
+stewards on Brazil's open data portal found that only 54\% updated data
+at the declared frequency~\cite{tejedo2025brazil}, which shows that open
+data timeliness cannot be assumed.
+
+\subsection{Research Gap}
+Table~\ref{tab:comparison} compares GarbageGo with the closest systems.
+Within the work we reviewed, no resident-facing system combines truck ETA,
+walking time, and data uncertainty to decide whether a user can make it
+now, or offers an alternative when the user cannot. GarbageGo targets
+this gap under the constraint of low-frequency, incomplete open data.
+
+\input{tables/comparison}

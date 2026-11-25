@@ -1,0 +1,61 @@
+% =====================================================================
+\section{Introduction}\label{sec:intro}
+% =====================================================================
+Taiwan's ``garbage never touches the ground'' policy requires residents
+to hand their garbage directly to a collection truck during its scheduled
+stop. In Taichung City, the official real-time service has run for more
+than ten years. As of September 2026 it covers 29 districts, more than
+370 routes, and over 20{,}000 collection points, and its app has been
+downloaded nearly 650{,}000 times~\cite{tcepb2026cleaner}. Despite this
+demand, users are not satisfied with the timing information. The official
+app has an average App Store rating of about 2.6 stars (609 ratings). Of
+the 100 most recent reviews collected on 2026-11-07, 71 gave one star,
+and 39 of those concerned inaccurate times or wrong arrival
+information~\cite{appstore_official}.
+
+A wrong decision is costly because the window is short. During the 2026
+Lunar New Year holidays, the city's 701 fixed-time collection stations
+each kept a truck for only about 5 to 30 minutes~\cite{tcepb2026spring}.
+On national holidays, curbside collection stops and only fixed-time
+points are served~\cite{tcepb_holiday}. A resident who misses the stop
+must wait for the next round or find another point.
+
+Two open datasets support third-party services: a vehicle-position feed
+declared to update every 10 minutes~\cite{dataset83558} and a list of
+collection points with scheduled times~\cite{dataset84004}. Existing
+apps, however, answer only ``where is the truck'' or ``when will it
+arrive at this point.'' The official app filters nearby points by a fixed
+radius and shows scheduled times, without walking time. A popular private
+app sorts nearby points by distance and shows walking time, but it does
+not combine walking time with the truck's arrival, and its reminders use
+a fixed lead time~\cite{appstore_private}. Neither app shows uncertainty
+or suggests an alternative when a user cannot make it.
+
+This paper addresses a decision question rather than a lookup:
+\emph{Which collection point should the user head to now to be most
+likely to catch the truck?} The nearest point is not always the best,
+because the truck may be about to leave it while a farther point still
+has time to spare. The answer depends on the truck's estimated time of
+arrival (ETA), the user's walking time, and a safety buffer for data
+delay and prediction error.
+
+The main contributions of this paper are as follows:
+\begin{itemize}
+  \item We formulate ``catching the garbage truck'' as a time-feasibility
+        recommendation problem that combines truck ETA, walking time, and
+        uncertainty into a single slack measure.
+  \item We design GarbageGo, a domain AI agent in which a large language
+        model (LLM) interprets requests and explains results, while GIS,
+        ETA, and recommendation engines compute every number.
+  \item We report a data feasibility study of Taichung's open vehicle and
+        collection-point data, covering update behavior, staleness,
+        entity matching, and geocoding.
+  \item We define an evaluation plan that compares nearest-point and
+        slack-based strategies using catch rate and misjudgment rate.
+\end{itemize}
+
+The remainder of this paper is organized as follows.
+Section~\ref{sec:related} reviews related work.
+Section~\ref{sec:scheme} presents the proposed scheme.
+Section~\ref{sec:exp} reports the data feasibility study and the
+evaluation plan, and Section~\ref{sec:conclusion} concludes the paper.

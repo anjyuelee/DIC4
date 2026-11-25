@@ -13,8 +13,14 @@
 |---|---|
 | ![修改前](docs/screenshots/conclusion_before.png) | ![修改後](docs/screenshots/conclusion_after.png) |
 
-- 原始檔：[`revision/before/sections/05_conclusion.tex`](revision/before/sections/05_conclusion.tex) → [`revision/after/sections/05_conclusion.tex`](revision/after/sections/05_conclusion.tex)
-- 逐行差異：[`revision/05_conclusion.diff`](revision/05_conclusion.diff)
+| | 修改前 | 修改後 |
+|---|---|---|
+| 完整 Overleaf 專案 | [`revision/before/`](revision/before/) | [`revision/after/`](revision/after/) |
+| 整篇論文 PDF | [`revision/before/main.pdf`](revision/before/main.pdf) | [`revision/after/main.pdf`](revision/after/main.pdf) |
+| 修改的章節 | [`before/sections/05_conclusion.tex`](revision/before/sections/05_conclusion.tex) | [`after/sections/05_conclusion.tex`](revision/after/sections/05_conclusion.tex) |
+
+- 逐行差異：[`revision/05_conclusion.diff`](revision/05_conclusion.diff)（兩份專案只有 `sections/05_conclusion.tex` 不同）
+- `revision/after/` 即目前 Overleaf 上的版本
 - Overleaf commit 訊息：`Revise Conclusion: separate summary, limitations, and future work`
 
 | 項目 | 修改前 | 修改後 |
@@ -165,16 +171,17 @@ EOF
 ```
 DIC4/
 ├── README.md
-├── paper/                         # 論文 LaTeX 專案（與 Overleaf 同步，為修改後版本）
-│   ├── main.tex
-│   ├── references.bib
-│   ├── sections/                  # 00_abstract … 05_conclusion
-│   ├── figures/architecture.pdf
-│   └── tables/comparison.tex
 ├── revision/
-│   ├── before/sections/05_conclusion.tex   # 修改前
-│   ├── after/sections/05_conclusion.tex    # 修改後
-│   └── 05_conclusion.diff                  # unified diff
+│   ├── before/                    # 修改前的完整 Overleaf 專案
+│   │   ├── main.tex
+│   │   ├── main.pdf               # 編譯好的整篇論文（5 頁）
+│   │   ├── references.bib
+│   │   ├── README.md
+│   │   ├── sections/              # 00_abstract … 05_conclusion
+│   │   ├── figures/architecture.pdf
+│   │   └── tables/comparison.tex
+│   ├── after/                     # 修改後的完整 Overleaf 專案（＝目前 Overleaf 版本），結構同上
+│   └── 05_conclusion.diff         # unified diff
 ├── mcp/
 │   ├── claude_desktop_config.example.json  # Claude Desktop 設定範例（不含憑證）
 │   └── projects.example.json               # Overleaf 專案／token 範本
@@ -186,7 +193,7 @@ DIC4/
 需要 TeX Live（IEEEtran 在 `texlive-publishers` 套件內）：
 
 ```bash
-cd paper
+cd revision/after      # 或 revision/before
 latexmk -pdf main.tex
 ```
 

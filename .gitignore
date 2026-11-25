@@ -12,6 +12,5 @@ claude_desktop_config.json
 *.log
 *.out
 *.synctex.gz
-paper/main.pdf
 
 .DS_Store
